@@ -13,10 +13,10 @@ jobs:
       - run: docker build -t theone940911/react-test -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true theone940911/react-test npm test
 
-      - run: docker build -t theone940911/multi-client ./client
       - run: docker build -t theone940911/multi-nginx ./nginx
       - run: docker build -t theone940911/multi-server ./server
       - run: docker build -t theone940911/multi-worker ./worker
+      - run: docker build -t theone940911/multi-client ./client
 
       # - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - run: docker push theone940911/multi-client
